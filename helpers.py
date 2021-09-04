@@ -4,7 +4,7 @@ from data import *
 def search_by_number():
     x = input("> Enter the Number: ")
     if x.isdigit() and len(x) == 10:
-        x = str(x)
+        x = int(x)
         if x in Telephone_Book:
             print(Telephone_Book[x])
         else:
@@ -14,21 +14,21 @@ def search_by_number():
 
 # To Search By Name
 def search_by_name():
-    x = input("> Enter the name: ").lower()
-    if x in Telephone_Book:
-        print(Telephone_Book[x])
-    else:
-        print("Name not found.")
+    x = input("> Enter the name: ").capitalize()
+    for key, value in Telephone_Book.items():
+        if x == value:
+            return print(key)
+    print("Name not found.")
 
 # To Add a name to the telephone book
 def add_number():
-    x = str(input("> Enter The Name: ")).lower()
+    x = input("> Enter The Name: ").capitalize()
     if x in Telephone_Book:
         print("The Name already registered.")
     else:
         y = input("> Enter The Number: ")
         if y.isdigit() and len(y) == 10:
-            Telephone_Book[x] = y
+            y = int(y)
             Telephone_Book[y] = x
         else:
             print("Invalid Number")

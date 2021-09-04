@@ -2,7 +2,6 @@ from helpers import *
 
 # Stores the user value, to run the respective operation.
 command = ""
-
 while True:
     command = input('''
 > Select The Operation:
