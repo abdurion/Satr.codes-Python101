@@ -5,10 +5,10 @@ def search_by_number():
     x = input("> Enter the Number: ")
     if x.isdigit() and len(x) == 10:
         x = int(x)
-        if x in Telephone_Book:
-            print(Telephone_Book[x])
-        else:
-            print("Sorry, the number is not found.")
+        for key, value in Telephone_Book.items():
+            if x == value:
+                return print(key)
+        print("Sorry, the number is not found.")
     else:
         print("This is invalid number.")
 
@@ -16,19 +16,26 @@ def search_by_number():
 def search_by_name():
     x = input("> Enter the name: ").capitalize()
     for key, value in Telephone_Book.items():
-        if x == value:
-            return print(key)
+        if x == key:
+            return print(value)
     print("Name not found.")
 
 # To Add a name to the telephone book
-def add_number():
+def add_contact():
     x = input("> Enter The Name: ").capitalize()
-    if x in Telephone_Book:
-        print("The Name already registered.")
-    else:
-        y = input("> Enter The Number: ")
-        if y.isdigit() and len(y) == 10:
-            y = int(y)
-            Telephone_Book[y] = x
+
+    for key, value in Telephone_Book.items():
+        if key == x:
+            return print("The name is already registered.")
         else:
-            print("Invalid Number")
+            y = input("> Enter the number: ")
+            if len(y) == 10:
+                y = int(y)
+                if y == value:
+                    return print("The number is already registered.")
+                else:
+                    break
+            else:
+                return print("This is invalid number")
+    Telephone_Book[x] = y
+    print("The contact has been added.")

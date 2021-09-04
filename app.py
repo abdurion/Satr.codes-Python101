@@ -7,7 +7,7 @@ while True:
 > Select The Operation:
     1 - Search By Number
     2 - Search By Name
-    3 - Add a Name to The Telephone Book
+    3 - Add a contact to The Telephone Book
     4 - Print The Telephone Book
     5 - Quit The Program
 > ''')
@@ -16,7 +16,7 @@ while True:
     elif command == "2":
         search_by_name()
     elif command == "3":
-        add_number()
+        add_contact()
     elif command == "4":
         print(Telephone_Book)
     elif command == "5":
